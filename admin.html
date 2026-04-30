@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ панель</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="admin">
+
+<h1>📊 Админ панель</h1>
+<input id="search" placeholder="Поиск...">
+<button class="logout" onclick="logout()">🚪 Выйти</button>
+<button onclick="window.open('http://localhost:3000/api/export')">
+    💾 Excel
+  </button>
+<button onclick="clearApps()">🗑 Очистить всё</button>
+
+
+
+<div id="list"></div>
+
+<script>
+    const ADMIN_PASSWORD = "0505"; // поменяй пароль
+
+const isAuth = sessionStorage.getItem("admin_auth");
+
+if (!isAuth) {
+  const pass = prompt("Введите пароль админки:");
+
+  if (pass === ADMIN_PASSWORD) {
+    sessionStorage.setItem("admin_auth", "true");
+  } else {
+    alert("Неверный пароль");
+    window.location.href = "index.html";
+  }
+}   
+
+
+function loadApps() {
+    const data = JSON.parse(localStorage.getItem("applications")) || [];
+    const list = document.getElementById("list");
+  
+    list.innerHTML = "";
+  
+    if (data.length === 0) {
+      list.innerHTML = "<p style='text-align:center'>Заявок нет 😢</p>";
+      return;
+    }
+  
+    data.forEach((app, i) => {
+  
+      const card = document.createElement("div");
+      card.className = "card";
+  
+      card.innerHTML = `
+      <h3>👤 ${app.name} ${app.surname}</h3>
+  <p>📞 ${app.phone}</p>
+  <p>🎓 ${app.course}</p>
+  <p>⏰ ${new Date(app.time).toLocaleString()}</p>
+
+  <span class="status ${app.status}">
+    ${app.status}
+  </span>
+
+  <div class="actions">
+
+    <button onclick="updateStatus(${app.id}, 'accepted')">
+      <i class="bi bi-check-lg"></i> Принять
+    </button>
+
+    <button onclick="updateStatus(${app.id}, 'rejected')">
+      <i class="bi bi-x-lg"></i> Отклонить
+    </button>
+
+    <button onclick="deleteApp(${app.id})">
+      <i class="bi bi-trash"></i> Удалить
+    </button>
+
+  </div>
+
+      `;
+  
+      list.appendChild(card);
+    });
+  }
+
+function clearApps() {
+  localStorage.removeItem("applications");
+  loadApps();
+}
+
+function logout() {
+  window.location.href = "index.html";
+}
+loadApps();
+</script>
+<script src="js/admin.js"></script>
+<input id="user" placeholder="login">
+<input id="pass" type="password" placeholder="password">
+<button onclick="login()">Войти</button>
+
+<script>
+function login() {
+  fetch("http://localhost:3000/api/login", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      username: user.value,
+      password: pass.value
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.ok) {
+      localStorage.setItem("token", data.token);
+      window.location.href = "admin.html";
+    } else {
+      alert("Ошибка");
+    }
+  });
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="chart"></canvas>
+
+
+</body>
+</html>

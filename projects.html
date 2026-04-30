@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Кружки</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<body>
+
+<header>
+  <div class="logo-box">
+    <img src="images/logo/1776112367834.png" class="logo"> <!-- 👈 сюда вставишь свой логотип -->
+    <h2>Культурный центр района</h2>
+  </div>
+  <nav>
+    <a href="index.html" class="nav-link">Главная</a>
+    <a href="about.html" class="nav-link">О нас</a>
+    <a href="projects.html" class="nav-link active">Кружки</a>
+    <a href="events.html" class="nav-link">События</a>
+    <a href="contact.html" class="nav-link">Контакты</a>
+  </nav>
+</header>
+
+<section class="page">
+
+  <h1>Кружки культурного центра района</h1>
+
+  <div class="projects-grid">
+
+    <!-- КАРТОЧКА 1 -->
+    <div class="project-card">
+      <img src="images/IMG_20251110_145534.jpg">
+      <h3>Танцы</h3>
+      <p>Современные и национальные</p>
+
+      <div class="card-buttons">
+        <button onclick="goToCourse('dance')">Подробнее</button>
+        <button onclick="openForm('Танцы')">Записаться</button>
+      </div>
+    </div>
+
+    <!-- КАРТОЧКА 2 -->
+    <div class="project-card">
+      <img src="images/IMG_20251110_150340.jpg">
+      <h3>Музыка</h3>
+      <p>Игра на музыкальных инструментах</p>
+
+      <div class="card-buttons">
+        <button onclick="goToCourse('music')">Подробнее</button>
+        <button onclick="openForm('Музыка')">Записаться</button>
+      </div>
+    </div>
+
+    <!-- КАРТОЧКА 3 -->
+    <div class="project-card">
+      <img src="images/IMG_20251110_145133.jpg">
+      <h3>Рисование</h3>
+      <p>Живопись и дизайн</p>
+
+      <div class="card-buttons">
+        <button onclick="goToCourse('art')">Подробнее</button>
+        <button onclick="openForm('Рисование')">Записаться</button>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script src="js/main.js"></script>
+<!-- МОДАЛКА -->
+<div id="form-modal" class="modal">
+  <div class="modal-content">
+    <h2>Запись на кружок</h2>
+
+    <input type="text" id="name" placeholder="Ваше имя">
+    <input type="text" id="surname" placeholder="Фамилия">
+    <input type="tel" id="phone" placeholder="Телефон">
+    
+    <button id="submitBtn" onclick="submitForm()" disabled>
+      Отправить заявку
+    </button>
+
+    <button onclick="closeForm()" class="cancel-btn">
+      Отмена
+    </button>
+    <div id="toast" class="toast">Заявка успешно отправлена ✅</div>
+  </div>
+</div>
+
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <!-- Ссылки -->
+    <div class="footer-block">
+      <h3>Навигация</h3>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О нас</a>
+      <a href="projects.html">Кружок</a>
+      <a href="events.html">События</a>
+      <a href="contact.html">Контакты</a>
+    </div>
+
+    <!-- Контакты -->
+    <div class="footer-block">
+      <h3>Контакты</h3>
+      <p>📍 Юкоричирчикский район</p>
+      <p>📞 +998 90 000 00 00</p>
+      <p>✉ info@example.uz</p>
+    </div>
+
+    <!-- Соцсети -->
+    <div class="footer-block">
+      <h3>Мы в соцсетях</h3>
+      <a href="https://t.me/Madaniyat54Markazi_saksonota">Telegram</a>
+      <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6">Instagram</a>
+          <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5" class="yt"><i class="bi bi-youtube"></i> YouTube</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Юкоричирчикский район. Все права защищены.</p>
+  </div>
+
+</footer>
+</body>
+</html>

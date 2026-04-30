@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Кружок</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo-box">
+    <img src="images/logo/1776112367834.png" class="logo"> <!-- 👈 сюда вставишь свой логотип -->
+    <h2>Культурный центр района</h2>
+  </div>
+
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="projects.html">Кружки</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+</header>
+
+<section class="course-page">
+
+  <div class="course-container">
+
+    <!-- КАРТИНКА -->
+    <div class="course-img-box">
+      <img id="course-img">
+    </div>
+
+    <!-- ИНФА -->
+    <div class="course-info">
+      <h1 id="course-title"></h1>
+
+      <p id="course-desc"></p>
+
+      <div class="course-details">
+        <p>⏰ <span id="course-time"></span></p>
+        <p>👨‍🏫 <span id="course-teacher"></span></p>
+      </div>
+
+      <button class="course-btn" onclick="openForm(selectedCourse)">
+        Записаться
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+<div id="form-modal" class="modal">
+  <div class="modal-content">
+
+    <h2>Записаться на курс</h2>
+
+    <input id="name" placeholder="Имя">
+    <input id="surname" placeholder="Фамилия">
+    <input id="phone" placeholder="Телефон">
+
+    <button onclick="submitForm()">Отправить</button>
+    <button onclick="closeForm()" class="cancel-btn">Отмена</button>
+
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
