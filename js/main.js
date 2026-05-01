@@ -1,6 +1,18 @@
 /* =========================
    EVENTS (из JSON)
 ========================= */
+const firebaseConfig = {
+  apiKey: "AIzaSyCg27w1e6tjm3qnNXL2jP5CrB5UBGHLR04",
+  authDomain: "kruzzhki.firebaseapp.com",
+  projectId: "kruzzhki",
+  storageBucket: "kruzzhki.firebasestorage.app",
+  messagingSenderId: "390218537245",
+  appId: "1:390218537245:web:9f836236801c76234ca9f4"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 
 let allEvents = [];
 
