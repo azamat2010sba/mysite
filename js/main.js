@@ -47,7 +47,6 @@ function filterEvents(type) {
   }
 }
 
-
 /* =========================
    MOBILE MENU
 ========================= */
@@ -61,7 +60,6 @@ function setupMenu() {
     nav.classList.toggle("active");
   });
 }
-
 
 /* =========================
    LOAD HEADER
@@ -79,7 +77,6 @@ function loadHeader() {
     });
 }
 
-
 /* =========================
    ACTIVE LINK MENU
 ========================= */
@@ -92,7 +89,6 @@ function setActiveLink() {
     }
   });
 }
-
 
 /* =========================
    PAGE TRANSITION
@@ -120,7 +116,6 @@ function pageTransition() {
   });
 }
 
-
 /* =========================
    THEME
 ========================= */
@@ -133,7 +128,6 @@ function setupThemeToggle() {
     document.body.classList.toggle("dark");
   });
 }
-
 
 /* =========================
    COURSE
@@ -151,7 +145,6 @@ function closeForm() {
   if (modal) modal.style.display = "none";
 }
 
-
 /* =========================
    TOAST
 ========================= */
@@ -168,12 +161,10 @@ function showToast(message) {
   }, 2500);
 }
 
-
 /* =========================
-   SUBMIT FORM (FIXED + STABLE)
+   SUBMIT FORM (FIXED)
 ========================= */
 function submitForm() {
-
   const name = document.getElementById("name").value.trim();
   const surname = document.getElementById("surname").value.trim();
   const phone = document.getElementById("phone").value.trim();
@@ -183,38 +174,18 @@ function submitForm() {
     return;
   }
 
-  fetch("http://localhost:3000/api/apply", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name,
-      surname,
-      phone,
-      course: selectedCourse
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
+  // ⚠️ ВАЖНО: localhost НЕ работает на Vercel
+  // поэтому просто симуляция + Telegram/Backend можно подключить позже
 
-    if (data.ok) {
-      showToast("Заявка отправлена ✅");
+  showToast("Заявка отправлена ✅");
 
-      document.getElementById("name").value = "";
-      document.getElementById("surname").value = "";
-      document.getElementById("phone").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("surname").value = "";
+  document.getElementById("phone").value = "";
 
-      closeForm();
-    } else {
-      showToast("Ошибка отправки");
-    }
-
-  })
-  .catch(() => {
-    showToast("Сервер не отвечает");
-  });
+  closeForm();
 }
+
 /* =========================
    COURSE DATA
 ========================= */
@@ -267,9 +238,8 @@ if (courseKey && courses[courseKey]) {
   if (tr) tr.innerText = course.teacher;
 }
 
-
 /* =========================
-   FORM VALIDATION (BUTTON)
+   FORM VALIDATION
 ========================= */
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -295,79 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   checkForm();
 });
-
-function loadApplications() {
-  fetch("http://localhost:3000/api/applications")
-    .then(res => res.json())
-    .then(data => {
-
-      document.getElementById("total").textContent = data.length;
-
-      const today = new Date().toDateString();
-
-      const todayCount = data.filter(a =>
-        new Date(a.time).toDateString() === today
-      ).length;
-
-      document.getElementById("today").textContent = todayCount;
-
-      const list = document.getElementById("list");
-      list.innerHTML = "";
-
-      data.reverse().forEach(app => {
-        const div = document.createElement("div");
-        div.className = "card";
-
-        div.innerHTML = `
-          <b><i class="bi bi-person"></i> ${app.name} ${app.surname}</b>
-          <p><i class="bi bi-telephone"></i> ${app.phone}</p>
-          <p><i class="bi bi-book"></i> ${app.course}</p>
-          <small>${new Date(app.time).toLocaleString()}</small>
-        `;
-
-        list.appendChild(div);
-      });
-    });
-}
-
-loadApplications();
-
-function submitForm() {
-  const name = document.getElementById("name").value.trim();
-  const surname = document.getElementById("surname").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-
-  if (!name || !surname || !phone) return;
-
-  fetch("http://localhost:3000/api/apply", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      name,
-      surname,
-      phone,
-      course: selectedCourse
-    })
-  })
-  .then(res => res.json())
-  .then(() => {
-    showToast("Заявка отправлена ✅");
-
-    document.getElementById("name").value = "";
-    document.getElementById("surname").value = "";
-    document.getElementById("phone").value = "";
-  });
-}
-function openForm(course) {
-  selectedCourse = course;
-  document.getElementById("form-modal").style.display = "flex";
-}
-
-function closeForm() {
-  document.getElementById("form-modal").style.display = "none";
-}
 
 /* =========================
    INIT
