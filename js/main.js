@@ -273,7 +273,6 @@ const translations = {
 
   uz: {
     title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
-  
     index: "Bosh sahifa",
     events: "Tadbirlar",
     about: "Biz haqimizda",
@@ -308,7 +307,9 @@ function applyLang(lang) {
   if (title) title.innerText = t.title;
 
   document.querySelectorAll(".nav-link").forEach(link => {
+    if (link.href.includes("index")) link.innerText = t.index;
     if (link.href.includes("about")) link.innerText = t.about;
+    if (link.href.includes("projects")) link.innerText = t.project;
     if (link.href.includes("events")) link.innerText = t.events;
     if (link.href.includes("contact")) link.innerText = t.contact;
   });
