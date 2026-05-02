@@ -1620,21 +1620,30 @@ nav {
   display: inline-block;
   margin-top: 20px;
 }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 .lang-switch {
   display: flex;
-  gap: 6px;
-  align-items: center;
-  margin: 5px 0;
+  gap: 5px;
 }
 
 .lang-switch button {
   padding: 4px 8px;
   border: none;
   border-radius: 6px;
-  background: #eee;
   cursor: pointer;
-  font-weight: bold;
+  background: #eee;
 }
 
 .lang-switch button:hover {
