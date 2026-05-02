@@ -1,7 +1,16 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
 <header>
 
   <div class="logo-box">
@@ -20,10 +29,11 @@
   </nav>
 
 </header>
+
 <h3 class="title">Связаться с нами</h3>
+
 <div class="contact-wrapper">
 
-  <!-- FORM -->
   <div class="contact-form">
     <input id="c_name" placeholder="Имя">
     <input id="c_phone" placeholder="Номер телефона">
@@ -34,7 +44,6 @@
     </button>
   </div>
 
-  <!-- MAP -->
   <div class="map-box">
     <iframe
       src="https://www.google.com/maps/embed?pb="
@@ -44,7 +53,6 @@
 
 </div>
 
-<!-- SOCIAL -->
 <div class="social-box">
   <h3>Мы в соцсетях</h3>
 
@@ -53,95 +61,89 @@
     <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6" class="icon insta"><i class="bi bi-instagram"></i></a>
     <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5" class="icon yt"><i class="bi bi-youtube"></i></a>
   </div>
-</div><script>
-  function sendToTelegram() {
-    const name = document.getElementById("c_name").value.trim();
-    const phone = document.getElementById("c_phone").value.trim();
-    const msg = document.getElementById("c_msg").value.trim();
-  
-    if (!name || !phone || !msg) {
-      alert("Заполни все поля!");
-      return;
-    }
-  
-    const text =
-  `📩 Новая заявка
-  👤 Имя: ${name}
-  📞 Телефон: ${phone}
-  💬 Сообщение: ${msg}`;
-  
-    const token = "8785923759:AAG-0yFVORAC4faEet6BXSJK4ID81ej_o2Q";
-    const chatId = "5292377784";
-  
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
-  
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data); // 👈 смотри в консоль
-  
-        if (data.ok) {
-          alert("Отправлено ✅");
-  
-          document.getElementById("c_name").value = "";
-          document.getElementById("c_phone").value = "";
-          document.getElementById("c_msg").value = "";
-        } else {
-          alert("Ошибка Telegram ❌");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-        alert("Ошибка сети");
-      });
+</div>
+
+<script>
+function sendToTelegram() {
+  const name = document.getElementById("c_name").value.trim();
+  const phone = document.getElementById("c_phone").value.trim();
+  const msg = document.getElementById("c_msg").value.trim();
+
+  if (!name || !phone || !msg) {
+    alert("Заполни все поля!");
+    return;
   }
-  </script>
+
+  const text =
+`📩 Новая заявка
+👤 Имя: ${name}
+📞 Телефон: ${phone}
+💬 Сообщение: ${msg}`;
+
+  const token = "8785923759:AAG-0yFVORAC4faEet6BXSJK4ID81ej_o2Q";
+  const chatId = "5292377784";
+
+  const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        alert("Отправлено ✅");
+
+        document.getElementById("c_name").value = "";
+        document.getElementById("c_phone").value = "";
+        document.getElementById("c_msg").value = "";
+      } else {
+        alert("Ошибка Telegram ❌");
+      }
+    })
+    .catch(() => {
+      alert("Ошибка сети");
+    });
+}
+</script>
 
 <footer class="site-footer">
 
   <div class="footer-container">
 
-    <!-- Ссылки -->
     <div class="footer-block">
       <h3>Навигация</h3>
       <a href="index.html">Главная</a>
       <a href="about.html">О нас</a>
-      <a href="projects.html">Кружок</a>
+      <a href="projects.html">Кружки</a>
       <a href="events.html">События</a>
       <a href="contact.html">Контакты</a>
     </div>
 
-    <!-- Контакты -->
     <div class="footer-block">
       <h3>Контакты</h3>
-    
+
       <p>📍 Юкоричирчикский район</p>
-    
+
       <p>
-         <a href="https://www.google.com/maps/place/SAKSON+OTA+MADANIYAT+MARKAZI"
-              target="_blank">
-              📍  Открыть на карте
+        <a href="https://www.google.com/maps/place/SAKSON+OTA+MADANIYAT+MARKAZI" target="_blank">
+          📍 Открыть на карте
         </a>
       </p>
-    
+
       <p>
         <a href="tel:+998996150435">📞 +998 99 615 04 35</a>
       </p>
-    
+
       <p>
         <a href="mailto:madaniyat54markazi@gmail.com">
-          ✉  madaniyat54markazi@gmail.com
+          ✉ madaniyat54markazi@gmail.com
         </a>
       </p>
     </div>
 
-    <!-- Соцсети -->
     <div class="footer-block">
       <h3>Мы в соцсетях</h3>
       <a href="https://t.me/Madaniyat54Markazi_saksonota">Telegram</a>
       <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6">Instagram</a>
-      <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5" class="yt"> YouTube</a>
-
+      <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5">YouTube</a>
     </div>
 
   </div>
@@ -151,4 +153,8 @@
   </div>
 
 </footer>
+
 <script src="js/main.js"></script>
+
+</body>
+</html>

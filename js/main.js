@@ -258,17 +258,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   checkForm();
 });
-
 const translations = {
   ru: {
     title: "КУЛЬТУРНЫЙ ЦЕНТР №54 «УЗБЕК-КАЗАХ»",
-  
     index: "Главная",
     events: "События",
     about: "О нас",
     project: "Кружки",
     contact: "Контакты",
-    more: "Подробнее"
+    more: "Подробнее",
+
+    hero_text: "Официальный информационный портал района",
+    about_title: "О районе",
+    about_text1: "Официальный портал Хокимията района предоставляет информацию о деятельности администрации, событиях и развитии региона.",
+    about_text2: "Здесь публикуются новости, мероприятия, проекты и важные объявления для жителей.",
+
+    footer_desc: "Официальный портал",
+    copyright: "© 2026 Все права защищены",
+
+    location: "📍 Юкоричирчикский район",
+    map: "📍 Открыть на карте",
+    phone: "📞 +998 99 615 04 35",
+    email: "✉ madaniyat54markazi@gmail.com"
   },
 
   uz: {
@@ -278,18 +289,44 @@ const translations = {
     about: "Biz haqimizda",
     project: "To'garaklar",
     contact: "Aloqa",
-    more: "Batafsil"
+    more: "Batafsil",
+
+    hero_text: "Tuman bo‘yicha rasmiy axborot portali",
+    about_title: "Tuman haqida",
+    about_text1: "Rasmiy portal ma’muriyat faoliyati, yangiliklar va rivojlanish haqida ma’lumot beradi.",
+    about_text2: "Bu yerda yangiliklar, tadbirlar va loyihalar e’lon qilinadi.",
+
+    footer_desc: "Rasmiy portal",
+    copyright: "© 2026 Barcha huquqlar himoyalangan",
+
+    location: "📍 Yuqori Chirchiq tumani",
+    map: "📍 Xarita ochish",
+    phone: "📞 +998 99 615 04 35",
+    email: "✉ madaniyat54markazi@gmail.com"
   },
-  
- kz: {
-  title: "54-NOMERLI «ÖZBEK-QAZAQ» MÄDENIET ORTALYĞY",
-  index: "Басты бет",
-  events: "Іс-шаралар",
-  about: "Біз туралы",
-  project: "Үйірмелер",
-  contact: "Байланыс",
-  more: "Толығырақ"
-}
+
+  kz: {
+    title: "54-NOMERLI «ÖZBEK-QAZAQ» MÄDENIET ORTALYĞY",
+    index: "Басты бет",
+    events: "Іс-шаралар",
+    about: "Біз туралы",
+    project: "Үйірмелер",
+    contact: "Байланыс",
+    more: "Толығырақ",
+
+    hero_text: "Ресми ақпараттық портал",
+    about_title: "Аудан туралы",
+    about_text1: "Әкімдік қызметі мен жаңалықтар туралы ақпарат беріледі.",
+    about_text2: "Мұнда жаңалықтар, іс-шаралар және жобалар жарияланады.",
+
+    footer_desc: "Ресми портал",
+    copyright: "© 2026 Барлық құқықтар қорғалған",
+
+    location: "📍 Юқори Чирчик ауданы",
+    map: "📍 Карта ашу",
+    phone: "📞 +998 99 615 04 35",
+    email: "✉ madaniyat54markazi@gmail.com"
+  }
 };
 
 function setLang(lang) {
@@ -299,27 +336,27 @@ function setLang(lang) {
 
 function applyLang(lang) {
   const t = translations[lang];
-
   if (!t) return;
 
-  // 🔥 ВАЖНО: заголовок в header
-  const title = document.querySelector(".logo-box h2");
-  if (title) title.innerText = t.title;
-
-  document.querySelectorAll(".nav-link").forEach(link => {
-    if (link.href.includes("index")) link.innerText = t.index;
-    if (link.href.includes("about")) link.innerText = t.about;
-    if (link.href.includes("projects")) link.innerText = t.project;
-    if (link.href.includes("events")) link.innerText = t.events;
-    if (link.href.includes("contact")) link.innerText = t.contact;
+  // 🔥 ВСЁ ЧТО data-lang
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    const key = el.getAttribute("data-lang");
+    if (t[key]) {
+      el.innerText = t[key];
+    }
   });
+
+  // если есть logo title отдельно
+  const logo = document.querySelector(".logo-box h2");
+  if (logo && t.title) logo.innerText = t.title;
 }
 
-window.addEventListener("load", () => {
+function loadLang() {
   const lang = localStorage.getItem("lang") || "ru";
   applyLang(lang);
-});
+}
 
+loadLang();
 /* =========================
    INIT
 ========================= */

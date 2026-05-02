@@ -14,7 +14,6 @@
 
 <body>
 
-<!-- HEADER -->
 <header>
 
   <div class="logo-box">
@@ -28,10 +27,8 @@
     <button onclick="setLang('kz')">KZ</button>
   </div>
 
-  <!-- БУРГЕР -->
   <div class="menu-toggle" id="menu-toggle">☰</div>
 
-  <!-- ВАЖНО: id="nav" -->
   <nav id="nav">
     <a href="index.html" class="nav-link" data-lang="index">Главная</a>
     <a href="about.html" class="nav-link" data-lang="about">О нас</a>
@@ -107,20 +104,22 @@
 
     <h3 data-lang="contact">Контакты</h3>
 
-    <p>📍 Юкоричирчикский район</p>
+    <p data-lang="location">📍 Юкоричирчикский район</p>
 
     <p>
-      <a href="https://www.google.com/maps/place/SAKSON+OTA+MADANIYAT+MARKAZI" target="_blank">
+      <a href="https://www.google.com/maps/place/SAKSON+OTA+MADANIYAT+MARKAZI" target="_blank" data-lang="map">
         📍 Открыть на карте
       </a>
     </p>
 
     <p>
-      <a href="tel:+998996150435">📞 +998 99 615 04 35</a>
+      <a href="tel:+998996150435" data-lang="phone">
+        📞 +998 99 615 04 35
+      </a>
     </p>
 
     <p>
-      <a href="mailto:madaniyat54markazi@gmail.com">
+      <a href="mailto:madaniyat54markazi@gmail.com" data-lang="email">
         ✉ madaniyat54markazi@gmail.com
       </a>
     </p>
@@ -145,28 +144,22 @@
 
 </section>
 
-<!-- FOOTER -->
 <footer>
 
   <h3 data-lang="title">Культурный центр района</h3>
 
-  <p>Официальный портал</p>
+  <p data-lang="footer_desc">Официальный портал</p>
 
   <div>
-    <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6">Instagram</a>
-    <a href="https://t.me/Madaniyat54Markazi_saksonota">Telegram</a>
-    <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5">YouTube</a>
+    <a href="#">Instagram</a>
+    <a href="#">Telegram</a>
+    <a href="#">YouTube</a>
   </div>
 
-  <p>© 2026 Все права защищены</p>
+  <p data-lang="copyright">© 2026 Все права защищены</p>
 
 </footer>
 
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-
-<!-- JS -->
 <script src="js/main.js"></script>
 
 </body>
