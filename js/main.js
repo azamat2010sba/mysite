@@ -270,8 +270,10 @@ const translations = {
   
   uz: {
     title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
+    index:"Bosh sahifa",
     events: "Tadbirlar",
     about: "Biz haqimizda",
+    project:"To'garaklar",
     contact: "Aloqa",
     more: "Batafsil"
   },
