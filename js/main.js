@@ -14,12 +14,17 @@ function loadEvents() {
   if (!container) return;
 
   fetch("data/events.json")
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("events.json not found");
+      return res.json();
+    })
     .then(data => {
       allEvents = data;
       renderEvents(data);
     })
-    .catch(err => console.log("Events error:", err));
+    .catch(() => {
+      container.innerHTML = "<p>Событий пока нет</p>";
+    });
 }
 
 function renderEvents(data) {
@@ -72,13 +77,13 @@ function setupMenu() {
 
 function loadHeader() {
   const header = document.getElementById("header");
-
   if (!header) return;
 
   fetch("header.html")
     .then(res => res.text())
     .then(data => {
       header.innerHTML = data;
+      setupMenu();
       setActiveLink();
     });
 }
@@ -130,8 +135,9 @@ function showToast(message) {
 }
 
 /* =========================
-   SUBMIT FORM (FIREBASE FIX)
+   SUBMIT FORM
 ========================= */
+
 function submitForm() {
   const name = document.getElementById("name").value.trim();
   const surname = document.getElementById("surname").value.trim();
@@ -254,41 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
   checkForm();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("nav");
-
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-});
-function setupMenu() {
-  const toggle = document.getElementById("menu-toggle");
-  const nav = document.getElementById("nav");
-
-  if (!toggle || !nav) return;
-
-  toggle.onclick = () => {
-    nav.classList.toggle("active");
-  };
-}
-
-function loadHeader() {
-  const header = document.getElementById("header");
-  if (!header) return;
-
-  fetch("header.html")
-    .then(res => res.text())
-    .then(data => {
-      header.innerHTML = data;
-
-      // важно: меню подключаем ТОЛЬКО после вставки header
-      setupMenu();
-      setActiveLink();
-    });
-}
 /* =========================
    INIT
 ========================= */
