@@ -1620,3 +1620,23 @@ nav {
   display: inline-block;
   margin-top: 20px;
 }
+
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.lang-switch button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lang-switch button:hover {
+  background: #ccc;
+}
