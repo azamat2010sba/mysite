@@ -333,12 +333,11 @@ function setLang(lang) {
   localStorage.setItem("lang", lang);
   applyLang(lang);
 }
-
 function applyLang(lang) {
   const t = translations[lang];
   if (!t) return;
 
-  // 🔥 ВСЁ ЧТО data-lang
+  // перевод всех data-lang элементов
   document.querySelectorAll("[data-lang]").forEach(el => {
     const key = el.getAttribute("data-lang");
     if (t[key]) {
@@ -346,9 +345,12 @@ function applyLang(lang) {
     }
   });
 
-  // если есть logo title отдельно
-  const logo = document.querySelector(".logo-box h2");
-  if (logo && t.title) logo.innerText = t.title;
+  // сохраняем язык
+  localStorage.setItem("lang", lang);
+}
+
+function setLang(lang) {
+  applyLang(lang);
 }
 
 function loadLang() {
@@ -356,8 +358,7 @@ function loadLang() {
   applyLang(lang);
 }
 
-loadLang();
-/* =========================
+loadLang();===============
    INIT
 ========================= */
 
