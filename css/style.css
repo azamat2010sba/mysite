@@ -1500,12 +1500,17 @@ body.admin {
     margin-top: 10px;
   }
 
-} 
-/* скрываем кнопку на ПК */
-.menu-toggle {
+} .menu-toggle {
   display: none;
   font-size: 30px;
   cursor: pointer;
+  z-index: 2000;
+}
+
+/* NAV default (ПК) */
+nav {
+  display: flex;
+  gap: 20px;
 }
 
 /* MOBILE */
@@ -1516,10 +1521,16 @@ body.admin {
   }
 
   nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+
     display: none;
     flex-direction: column;
-    width: 100%;
-    background: white;
+
+    background: black;
+    z-index: 1500;
   }
 
   nav.active {
@@ -1527,36 +1538,8 @@ body.admin {
   }
 
   .nav-link {
-    padding: 12px;
-    border-top: 1px solid #eee;
-  }
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: white;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  .nav-link {
-    padding: 12px;
-    border-top: 1px solid #eee;
+    padding: 15px;
+    border-top: 1px solid #333;
+    color: white;
   }
 }

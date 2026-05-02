@@ -264,7 +264,31 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.classList.toggle("active");
   });
 });
+function setupMenu() {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
 
+  if (!toggle || !nav) return;
+
+  toggle.onclick = () => {
+    nav.classList.toggle("active");
+  };
+}
+
+function loadHeader() {
+  const header = document.getElementById("header");
+  if (!header) return;
+
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => {
+      header.innerHTML = data;
+
+      // важно: меню подключаем ТОЛЬКО после вставки header
+      setupMenu();
+      setActiveLink();
+    });
+}
 /* =========================
    INIT
 ========================= */
