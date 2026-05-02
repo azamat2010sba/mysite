@@ -1501,3 +1501,33 @@ body.admin {
   }
 
 } 
+/* скрываем кнопку на ПК */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: white;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px;
+    border-top: 1px solid #eee;
+  }
+}
