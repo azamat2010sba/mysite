@@ -205,7 +205,7 @@ const courses = {
     img: "images/IMG_20251110_145133.jpg",
     desc: "Живопись и дизайн",
     time: "",
-    teacher: ".."
+    teacher: ""
   }
 };
 
