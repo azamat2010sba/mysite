@@ -259,6 +259,58 @@ document.addEventListener("DOMContentLoaded", () => {
   checkForm();
 });
 
+const translations = {
+  ru: {
+    title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
+    events: "События",
+    about: "О нас",
+    contact: "Контакты",
+    more: "Подробнее"
+  },
+  
+  uz: {
+    title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
+    events: "Tadbirlar",
+    about: "Biz haqimizda",
+    contact: "Aloqa",
+    more: "Batafsil"
+  },
+  
+  kz: {
+    title: "54-SONDI \"OʻZBEK-QOZOQ\" MÁDENIET ORTALYǴY",
+    events: "Іс-шаралар",
+    about: "Біз туралы",
+    contact: "Байланыс",
+    more: "Толығырақ"
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem("lang", lang);
+  applyLang(lang);
+}
+
+function applyLang(lang) {
+  const t = translations[lang];
+
+  if (!t) return;
+
+  // 🔥 ВАЖНО: заголовок в header
+  const title = document.querySelector(".logo-box h2");
+  if (title) title.innerText = t.title;
+
+  document.querySelectorAll(".nav-link").forEach(link => {
+    if (link.href.includes("about")) link.innerText = t.about;
+    if (link.href.includes("events")) link.innerText = t.events;
+    if (link.href.includes("contact")) link.innerText = t.contact;
+  });
+}
+
+window.addEventListener("load", () => {
+  const lang = localStorage.getItem("lang") || "ru";
+  applyLang(lang);
+});
+
 /* =========================
    INIT
 ========================= */
