@@ -49,23 +49,13 @@ body {
   width: 100%;
   border-radius: 10px;
   margin: 20px 0;
-  transition: 0.3s;
-}
-
-.event-img:hover {
-  transform: scale(1.02);
+  cursor: pointer;
 }
 
 .socials {
   margin-top: 40px;
   border-top: 1px solid #ddd;
   padding-top: 20px;
-}
-
-.socials a {
-  margin-right: 15px;
-  font-size: 18px;
-  text-decoration: none;
 }
 
 .share-btn {
@@ -88,47 +78,43 @@ body {
 
 </head>
 <body>
-  <header>
 
-    <div class="logo-box">
-      <img src="images/logo/1776112367834.png" class="logo"> <!-- 👈 сюда вставишь свой логотип -->
-      <h2>Культурный центр района</h2>
-    </div>
-    <nav>
-      <a href="index.html" class="nav-link">Главная</a>
-      <a href="about.html" class="nav-link">О нас</a>
-      <a href="projects.html" class="nav-link">Кружок</a>
-      <a href="events.html" class="nav-link">События</a>
-      <a href="contact.html" class="nav-link">Контакты</a>
-    </nav>
-  </header>
-
+<header>
+  <div class="logo-box">
+    <img src="images/logo/1776112367834.png" class="logo">
+    <h2>Культурный центр района</h2>
+  </div>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="about.html">О нас</a>
+    <a href="projects.html">Кружок</a>
+    <a href="events.html">События</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
+</header>
 
 <div class="event-page">
 
   <h1 id="title" class="event-title"></h1>
 
   <div class="event-meta">
-    <span id="date"></span> • 
-    Источник: Хокимият
+    <span id="date"></span> • Источник: Хокимият
   </div>
 
   <img id="mainImg" class="main-img">
 
   <div id="content" class="event-text"></div>
 
-  <!-- СОЦСЕТИ -->
   <div class="socials">
     <h3>Подписаться:</h3>
 
     <a href="https://t.me/Madaniyat54Markazi_saksonota"><i class="bi bi-telegram"></i></a>
-    <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6"><i class="bi bi-instagram"></i></a>
-    <a href="https://facebook.com/yuqori.chirchiq.tuman.hokimligi.axborot.xizmati"><i class="bi bi-facebook"></i></a>
+    <a href="https://www.instagram.com/madaniyat_54_markazi"><i class="bi bi-instagram"></i></a>
 
     <br>
 
     <button class="share-btn" onclick="share()">
-      <i class="bi bi-share"></i> Поделиться
+      Поделиться
     </button>
   </div>
 
@@ -139,7 +125,7 @@ body {
 <script>
 const id = new URLSearchParams(location.search).get("id");
 
-fetch("http://localhost:3000/api/events")
+fetch("data/events.json")
   .then(res => res.json())
   .then(data => {
 
@@ -159,14 +145,34 @@ fetch("http://localhost:3000/api/events")
     const paragraphs = event.fullText.split("\n");
 
     paragraphs.forEach((p, index) => {
-
       content.innerHTML += `<p>${p}</p>`;
 
-      // вставка фото между текстом
       if (event.gallery && event.gallery[index]) {
         content.innerHTML += `<img src="${event.gallery[index]}" class="event-img">`;
       }
+    });
 
+    // 👇 увеличение картинки при клике
+    document.querySelectorAll(".event-img").forEach(img => {
+      img.onclick = () => {
+        const modal = document.createElement("div");
+
+        modal.style.position = "fixed";
+        modal.style.top = 0;
+        modal.style.left = 0;
+        modal.style.width = "100%";
+        modal.style.height = "100%";
+        modal.style.background = "rgba(0,0,0,0.8)";
+        modal.style.display = "flex";
+        modal.style.alignItems = "center";
+        modal.style.justifyContent = "center";
+
+        modal.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%;">`;
+
+        modal.onclick = () => modal.remove();
+
+        document.body.appendChild(modal);
+      };
     });
 
   });
@@ -175,70 +181,7 @@ function share() {
   navigator.clipboard.writeText(window.location.href);
   alert("Ссылка скопирована!");
 }
-
-image.onclick = () => {
-  const modal = document.createElement("div");
-
-  modal.style.position = "fixed";
-  modal.style.top = 0;
-  modal.style.left = 0;
-  modal.style.width = "100%";
-  modal.style.height = "100%";
-  modal.style.background = "rgba(0,0,0,0.8)";
-  modal.style.display = "flex";
-  modal.style.alignItems = "center";
-  modal.style.justifyContent = "center";
-
-  modal.innerHTML = `<img src="${img}" style="max-width:90%; max-height:90%; border-radius:10px;">`;
-
-  modal.onclick = () => modal.remove();
-
-  document.body.appendChild(modal);
-};
-
-const textContainer = document.getElementById("text");
-
-e.fullText.split("\n").forEach(p => {
-  const paragraph = document.createElement("p");
-  paragraph.innerText = p;
-  textContainer.appendChild(paragraph);
-});
 </script>
-<footer class="site-footer">
 
-  <div class="footer-container">
-
-    <!-- Ссылки -->
-    <div class="footer-block">
-      <h3>Навигация</h3>
-      <a href="index.html">Главная</a>
-      <a href="about.html">О нас</a>
-      <a href="projects.html">Проекты</a>
-      <a href="events.html">События</a>
-      <a href="contact.html">Контакты</a>
-    </div>
-
-    <!-- Контакты -->
-    <div class="footer-block">
-      <h3>Контакты</h3>
-      <p>📍 Юкоричирчикский район</p>
-      <p>📞 +998 90 000 00 00</p>
-      <p>✉ info@example.uz</p>
-    </div>
-
-    <!-- Соцсети -->
-    <div class="footer-block">
-      <h3>Мы в соцсетях</h3>
-      <a href="https://t.me/Madaniyat54Markazi_saksonota">Telegram</a>
-      <a href="https://www.instagram.com/madaniyat_54_markazi?igsh=M2F1NTN0ZnN3cDh6">Instagram</a>
-      <a href="https://youtube.com/@54-sonliozbek-qozoqmadaniyatma?si=kUW6XLgM_nBQ_Vw5" class="yt"> YouTube</a>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 Юкоричирчикский район. Все права защищены.</p>
-  </div>
-
-</footer>
-</html> 
+</body>
+</html>
