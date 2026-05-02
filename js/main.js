@@ -358,7 +358,8 @@ function loadLang() {
   applyLang(lang);
 }
 
-loadLang();===============
+loadLang();
+/* =========================
    INIT
 ========================= */
 
