@@ -261,30 +261,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const translations = {
   ru: {
-    title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
+    title: "КУЛЬТУРНЫЙ ЦЕНТР №54 «УЗБЕК-КАЗАХ»",
+  
+    index: "Главная",
     events: "События",
     about: "О нас",
+    project: "Кружки",
     contact: "Контакты",
     more: "Подробнее"
   },
-  
+
   uz: {
     title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
-    index:"Bosh sahifa",
+  
+    index: "Bosh sahifa",
     events: "Tadbirlar",
     about: "Biz haqimizda",
-    project:"To'garaklar",
+    project: "To'garaklar",
     contact: "Aloqa",
     more: "Batafsil"
   },
   
-  kz: {
-    title: "54-SONDI \"OʻZBEK-QOZOQ\" MÁDENIET ORTALYǴY",
-    events: "Іс-шаралар",
-    about: "Біз туралы",
-    contact: "Байланыс",
-    more: "Толығырақ"
-  }
+ kz: {
+  title: "54-NOMERLI «ÖZBEK-QAZAQ» MÄDENIET ORTALYĞY",
+  index: "Басты бет",
+  events: "Іс-шаралар",
+  about: "Біз туралы",
+  project: "Үйірмелер",
+  contact: "Байланыс",
+  more: "Толығырақ"
+}
 };
 
 function setLang(lang) {
