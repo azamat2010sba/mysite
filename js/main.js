@@ -1,6 +1,8 @@
 /* =========================
-   EVENTS (из JSON)
+   Firebase INIT
 ========================= */
+
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCg27w1e6tjm3qnNXL2jP5CrB5UBGHLR04",
   authDomain: "kruzzhki.firebaseapp.com",
@@ -10,15 +12,23 @@ const firebaseConfig = {
   appId: "1:390218537245:web:9f836236801c76234ca9f4"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// ⚠️ IMPORTANT: compat version
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
+/* =========================
+   GLOBAL
+========================= */
 
+let selectedCourse = "";
 let allEvents = [];
+
+/* =========================
+   EVENTS
+========================= */
 
 function loadEvents() {
   const container = document.getElementById("events-container");
-
   if (!container) return;
 
   fetch("data/events.json")
@@ -60,8 +70,9 @@ function filterEvents(type) {
 }
 
 /* =========================
-   MOBILE MENU
+   MENU
 ========================= */
+
 function setupMenu() {
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav");
@@ -74,8 +85,9 @@ function setupMenu() {
 }
 
 /* =========================
-   LOAD HEADER
+   HEADER
 ========================= */
+
 function loadHeader() {
   const header = document.getElementById("header");
 
@@ -89,9 +101,6 @@ function loadHeader() {
     });
 }
 
-/* =========================
-   ACTIVE LINK MENU
-========================= */
 function setActiveLink() {
   const links = document.querySelectorAll(".nav-link");
 
@@ -103,48 +112,8 @@ function setActiveLink() {
 }
 
 /* =========================
-   PAGE TRANSITION
-========================= */
-function pageTransition() {
-  document.querySelectorAll("a").forEach(link => {
-    if (
-      link.href &&
-      link.href.includes(window.location.host) &&
-      !link.href.includes("#")
-    ) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        const url = this.href;
-
-        document.body.style.opacity = "0";
-        document.body.style.transition = "0.3s";
-
-        setTimeout(() => {
-          window.location.href = url;
-        }, 300);
-      });
-    }
-  });
-}
-
-/* =========================
-   THEME
-========================= */
-function setupThemeToggle() {
-  const btn = document.getElementById("theme-toggle");
-
-  if (!btn) return;
-
-  btn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-  });
-}
-
-/* =========================
    COURSE
 ========================= */
-let selectedCourse = "";
 
 function openForm(course = "") {
   selectedCourse = course;
@@ -157,9 +126,14 @@ function closeForm() {
   if (modal) modal.style.display = "none";
 }
 
+function goToCourse(course) {
+  window.location.href = `course.html?course=${course}`;
+}
+
 /* =========================
    TOAST
 ========================= */
+
 function showToast(message) {
   const toast = document.getElementById("toast");
 
@@ -174,7 +148,7 @@ function showToast(message) {
 }
 
 /* =========================
-   SUBMIT FORM (FIXED)
+   SUBMIT FORM (FIREBASE FIX)
 ========================= */
 function submitForm() {
   const name = document.getElementById("name").value.trim();
@@ -186,46 +160,65 @@ function submitForm() {
     return;
   }
 
-  // ⚠️ ВАЖНО: localhost НЕ работает на Vercel
-  // поэтому просто симуляция + Telegram/Backend можно подключить позже
+  const token = "8785923759:AAG-0yFVORAC4faEet6BXSJK4ID81ej_o2Q";
+  const chat_id = "5292377784";
 
-  showToast("Заявка отправлена ✅");
+  const text =
+`📥 Новая заявка
+👤 Имя: ${name}
+👤 Фамилия: ${surname}
+📞 Телефон: ${phone}
+📚 Кружок: ${selectedCourse}`;
 
-  document.getElementById("name").value = "";
-  document.getElementById("surname").value = "";
-  document.getElementById("phone").value = "";
+  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      chat_id: chat_id,
+      text: text
+    })
+  })
+  .then(() => {
+    showToast("Заявка отправлена ✅");
 
-  closeForm();
+    document.getElementById("name").value = "";
+    document.getElementById("surname").value = "";
+    document.getElementById("phone").value = "";
+
+    closeForm();
+  })
+  .catch(() => {
+    showToast("Ошибка отправки ❌");
+  });
 }
 
 /* =========================
    COURSE DATA
 ========================= */
-function goToCourse(course) {
-  window.location.href = `course.html?course=${course}`;
-}
 
 const courses = {
   dance: {
     title: "Танцы",
     img: "images/IMG_20251110_145534.jpg",
     desc: "Современные и национальные танцы",
-    time: "Пн, Ср, Пт — 16:00",
-    teacher: "Иван Иванов"
+    time: "",
+    teacher: ""
   },
   music: {
     title: "Музыка",
     img: "images/IMG_20251110_150340.jpg",
-    desc: "Игра на инструментах",
-    time: "Вт, Чт — 15:00",
-    teacher: "Алиев Бек"
+    desc: "",
+    time: "",
+    teacher: ""
   },
   art: {
     title: "Рисование",
     img: "images/IMG_20251110_145133.jpg",
     desc: "Живопись и дизайн",
-    time: "Сб — 14:00",
-    teacher: "Мария Петрова"
+    time: "",
+    teacher: ".."
   }
 };
 
@@ -253,6 +246,7 @@ if (courseKey && courses[courseKey]) {
 /* =========================
    FORM VALIDATION
 ========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const name = document.getElementById("name");
@@ -281,10 +275,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================
    INIT
 ========================= */
+
 document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
   setupMenu();
   loadHeader();
-  pageTransition();
-  setupThemeToggle();
+  setActiveLink();
 });
