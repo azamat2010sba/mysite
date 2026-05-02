@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkForm();
 });
 
-function setupMenu() {
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav");
 
@@ -263,10 +263,6 @@ function setupMenu() {
   toggle.addEventListener("click", () => {
     nav.classList.toggle("active");
   });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  setupMenu();
 });
 
 /* =========================
