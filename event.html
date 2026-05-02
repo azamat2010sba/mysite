@@ -79,24 +79,23 @@ body {
 
 </head>
 <body>
-  <header>
 
-    <div class="logo-box">
-      <img src="images/logo/1776112367834.png" class="logo">
-      <h2>КУЛЬТУРНЫЙ ЦЕНТР № 54</h2>
-    </div>
-  
-    <div class="menu-toggle" id="menu-toggle">☰</div>
-  
-    <nav id="nav">
-      <a href="index.html" class="nav-link">Главная</a>
-      <a href="about.html" class="nav-link">О нас</a>
-      <a href="projects.html" class="nav-link">Кружки</a>
-      <a href="events.html" class="nav-link">События</a>
-      <a href="contact.html" class="nav-link">Контакты</a>
-    </nav>
-  
-  </header>
+<header>
+  <div class="logo-box">
+    <img src="images/logo/1776112367834.png" class="logo">
+    <h2>КУЛЬТУРНЫЙ ЦЕНТР № 54</h2>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-link">Главная</a>
+    <a href="about.html" class="nav-link">О нас</a>
+    <a href="projects.html" class="nav-link">Кружки</a>
+    <a href="events.html" class="nav-link">События</a>
+    <a href="contact.html" class="nav-link">Контакты</a>
+  </nav>
+</header>
 
 <div class="event-page">
 
@@ -147,17 +146,30 @@ fetch("data/events.json")
 
     const content = document.getElementById("content");
 
-    const paragraphs = event.fullText.split("\n");
+    // 🔥 НОВОЕ: если есть sections (3 картинки + 3 текста)
+    if (event.sections) {
+      event.sections.forEach(sec => {
+        content.innerHTML += `
+          <img src="${sec.img}" class="event-img">
+          <p>${sec.text}</p>
+        `;
+      });
+    }
 
-    paragraphs.forEach((p, index) => {
-      content.innerHTML += `<p>${p}</p>`;
+    // 🔥 СТАРОЕ: если используешь fullText + gallery
+    else if (event.fullText) {
+      const paragraphs = event.fullText.split("\n");
 
-      if (event.gallery && event.gallery[index]) {
-        content.innerHTML += `<img src="${event.gallery[index]}" class="event-img">`;
-      }
-    });
+      paragraphs.forEach((p, index) => {
+        content.innerHTML += `<p>${p}</p>`;
 
-    // 👇 увеличение картинки при клике
+        if (event.gallery && event.gallery[index]) {
+          content.innerHTML += `<img src="${event.gallery[index]}" class="event-img">`;
+        }
+      });
+    }
+
+    // увеличение картинки
     document.querySelectorAll(".event-img").forEach(img => {
       img.onclick = () => {
         const modal = document.createElement("div");
@@ -187,6 +199,7 @@ function share() {
   alert("Ссылка скопирована!");
 }
 </script>
+
 <script src="js/main.js"></script>
 </body>
 </html>
