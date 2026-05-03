@@ -386,12 +386,13 @@ function applyLang(lang) {
   if (!t) return;
 
   // перевод всех data-lang элементов
-  document.querySelectorAll("[data-lang]").forEach(el => {
-    const key = el.getAttribute("data-lang");
-    if (t[key]) {
-      el.innerText = t[key];
-    }
-  });
+ // 🔥 ГЛАВНОЕ — перевод всех data-lang элементов
+document.querySelectorAll("[data-lang]").forEach(el => {
+  const key = el.getAttribute("data-lang");
+  if (t[key]) {
+    el.innerText = t[key];
+  }
+});
 
   // сохраняем язык
   localStorage.setItem("lang", lang);
