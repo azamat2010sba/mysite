@@ -281,101 +281,103 @@ const translations = {
     phone: "📞 +998 99 615 04 35",
     email: "✉ madaniyat54markazi@gmail.com"
   },
-
-  uz: {
-    title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
-    index: "Bosh sahifa",
-    events: "Tadbirlar",
-    about: "Biz haqimizda",
-    project: "To'garaklar",
-    contact: "Aloqa",
-    more: "Batafsil",
   
-    hero_text: "Tuman bo‘yicha rasmiy axborot portali",
-    about_title: "Tuman haqida",
-    about_text1: "Rasmiy portal ma’muriyat faoliyati, yangiliklar va rivojlanish haqida ma’lumot beradi.",
-    about_text2: "Bu yerda yangiliklar, tadbirlar va loyihalar e’lon qilinadi.",
+    uz: {
+      title: "54-SONLI \"OʻZBEK-QOZOQ\" MADANIYAT MARKAZI",
+      index: "Bosh sahifa",
+      events: "Tadbirlar",
+      about: "Biz haqimizda",
+      project: "To'garaklar",
+      contact: "Aloqa",
+      more: "Batafsil",
   
-    // 🔥 ДОБАВИЛ ДЛЯ ABOUT.HTML
-    about_page_title: "Biz haqimizda",
-    about_p1: "Toshkent viloyati madaniyat boshqarmasi, Yuqori Chirchiq tumani madaniyat bo‘limiga qarashli 54-sonli \"O‘zbek-Qozoq\" madaniyat markazi ikki xalq do‘stligi, madaniyati va an’analarini rivojlantiradi.",
-    about_p2: "Markaz tadbirlar, to‘garaklar va ko‘rgazmalar orqali madaniy aloqalarni mustahkamlaydi.",
-    about_p3: "Markazda 225 o‘rinli tomosha zali mavjud.",
-    about_p4: "12 nafar xodim va 2 ta to‘garak faoliyat yuritadi.",
-    // 🔥 EVENTS
-events_page_title: "Tadbirlar",
-events_title: "📅 Tuman tadbirlari",
-
-event1_title: "14-yanvar Vatan himoyachilari kuni",
-event1_desc: "Yuqori Chirchiq tumanida Vatan himoyachilari kuni tantanali nishonlandi",
-
-event2_title: "Ma’naviyat karvoni",
-event2_desc: "Yuqori Chirchiq tumanida rivojlanish sari qadamlar",
-
-event3_title: "Alisher Navoiy tavalludining 585 yilligi",
-event3_desc: "Tumanimizda Navoiyga bag‘ishlangan tadbir o‘tkazildi",
-
-event4_title: "Navro‘z bayrami",
-event4_desc: "Tumanimizda Navro‘z keng nishonlandi",
-    nav: "Navigatsiya",
-    socials: "Ijtimoiy tarmoqlar",
+      hero_text: "Tuman bo‘yicha rasmiy axborot portali",
+      about_title: "Tuman haqida",
+      about_text1: "Rasmiy portal ma’muriyat faoliyati, yangiliklar va rivojlanish haqida ma’lumot beradi.",
+      about_text2: "Bu yerda yangiliklar, tadbirlar va loyihalar e’lon qilinadi.",
   
-    footer_desc: "Rasmiy portal",
-    copyright: "© 2026 Barcha huquqlar himoyalangan",
+      about_page_title: "Biz haqimizda",
+      about_p1: "Toshkent viloyati madaniyat boshqarmasi, Yuqori Chirchiq tumani madaniyat bo‘limiga qarashli 54-sonli \"O‘zbek-Qozoq\" madaniyat markazi ikki xalq do‘stligi, madaniyati va an’analarini rivojlantiradi.",
+      about_p2: "Markaz tadbirlar, to‘garaklar va ko‘rgazmalar orqali madaniy aloqalarni mustahkamlaydi.",
+      about_p3: "Markazda 225 o‘rinli tomosha zali mavjud.",
+      about_p4: "12 nafar xodim va 2 ta to‘garak faoliyat yuritadi.",
   
-    location: "📍 Yuqori Chirchiq tumani",
-    map: "📍 Xarita ochish",
-    phone: "📞 +998 99 615 04 35",
-    email: "✉ madaniyat54markazi@gmail.com"
-  },
+      // EVENTS (UZ)
+      events_page_title: "Tadbirlar",
+      events_title: "📅 Tuman tadbirlari",
   
-  kz: {
-    title: "54-NOMERLI «ÖZBEK-QAZAQ» MÄDENIET ORTALYĞY",
-    index: "Басты бет",
-    events: "Іс-шаралар",
-    about: "Біз туралы",
-    project: "Үйірмелер",
-    contact: "Байланыс",
-    more: "Толығырақ",
+      event1_title: "14-yanvar Vatan himoyachilari kuni",
+      event1_desc: "Yuqori Chirchiq tumanida Vatan himoyachilari kuni tantanali nishonlandi",
   
-    hero_text: "Ресми ақпараттық портал",
-    about_title: "Аудан туралы",
-    about_text1: "Әкімдік қызметі мен жаңалықтар туралы ақпарат беріледі.",
-    about_text2: "Мұнда жаңалықтар, іс-шаралар және жобалар жарияланады.",
+      event2_title: "Ma’naviyat karvoni",
+      event2_desc: "Yuqori Chirchiq tumanida rivojlanish sari qadamlar",
   
-    // 🔥 ДОБАВИЛ ДЛЯ ABOUT.HTML
-    about_page_title: "Біз туралы",
-    about_p1: "Ташкент облысы мәдениет басқармасы, Юқори Чирчик ауданы мәдениет бөліміне қарасты 54-нөмірлі «Өзбек-Қазақ» мәдениет орталығы екі халықтың достығы мен мәдениетін дамытады.",
-    about_p2: "Орталық іс-шаралар мен үйірмелер арқылы мәдени байланысты нығайтады.",
-    about_p3: "Орталықта 225 орындық зал бар.",
-    about_p4: "12 қызметкер және 2 үйірме жұмыс істейді.",
-    // 🔥 EVENTS
-events_page_title: "Іс-шаралар",
-events_title: "📅 Аудан іс-шаралары",
-
-event1_title: "14 қаңтар Отан қорғаушылар күні",
-event1_desc: "Юқори Чирчик ауданында Отан қорғаушылар күні атап өтілді",
-
-event2_title: "Руханият керуені",
-event2_desc: "Ауданда даму жолындағы қадамдар",
-
-event3_title: "Әлішер Науаи 585 жылдығы",
-event3_desc: "Ауданда Науаиға арналған іс-шара өтті",
-
-event4_title: "Наурыз мерекесі",
-event4_desc: "Ауданда Наурыз кең көлемде атап өтілді",
-    nav: "Навигация",
-    socials: "Әлеуметтік желілер",
+      event3_title: "Alisher Navoiy tavalludining 585 yilligi",
+      event3_desc: "Tumanimizda Navoiyga bag‘ishlangan tadbir o‘tkazildi",
   
-    footer_desc: "Ресми портал",
-    copyright: "© 2026 Барлық құқықтар қорғалған",
+      event4_title: "Navro‘z bayrami",
+      event4_desc: "Tumanimizda Navro‘z keng nishonlandi",
   
-    location: "📍 Юқори Чирчик ауданы",
-    map: "📍 Карта ашу",
-    phone: "📞 +998 99 615 04 35",
-    email: "✉ madaniyat54markazi@gmail.com"
-  }
-};
+      nav: "Navigatsiya",
+      socials: "Ijtimoiy tarmoqlar",
+  
+      footer_desc: "Rasmiy portal",
+      copyright: "© 2026 Barcha huquqlar himoyalangan",
+  
+      location: "📍 Yuqori Chirchiq tumani",
+      map: "📍 Xarita ochish",
+      phone: "📞 +998 99 615 04 35",
+      email: "✉ madaniyat54markazi@gmail.com"
+    },
+  
+    kz: {
+      title: "54-NOMERLI «ÖZBEK-QAZAQ» MÄDENIET ORTALYĞY",
+      index: "Басты бет",
+      events: "Іс-шаралар",
+      about: "Біз туралы",
+      project: "Үйірмелер",
+      contact: "Байланыс",
+      more: "Толығырақ",
+  
+      hero_text: "Ресми ақпараттық портал",
+      about_title: "Аудан туралы",
+      about_text1: "Әкімдік қызметі мен жаңалықтар туралы ақпарат беріледі.",
+      about_text2: "Мұнда жаңалықтар, іс-шаралар және жобалар жарияланады.",
+  
+      about_page_title: "Біз туралы",
+      about_p1: "Ташкент облысы мәдениет басқармасы, Юқори Чирчик ауданы мәдениет бөліміне қарасты 54-нөмірлі «Өзбек-Қазақ» мәдениет орталығы екі халықтың достығы мен мәдениетін дамытады.",
+      about_p2: "Орталық іс-шаралар мен үйірмелер арқылы мәдени байланысты нығайтады.",
+      about_p3: "Орталықта 225 орындық зал бар.",
+      about_p4: "12 қызметкер және 2 үйірме жұмыс істейді.",
+  
+      // EVENTS (KZ)
+      events_page_title: "Іс-шаралар",
+      events_title: "📅 Аудан іс-шаралары",
+  
+      event1_title: "14 қаңтар Отан қорғаушылар күні",
+      event1_desc: "Юқори Чирчик ауданында Отан қорғаушылар күні салтанатты түрде аталып өтті",
+  
+      event2_title: "Руханият керуені",
+      event2_desc: "Юқори Чирчик ауданында даму жолындағы қадамдар",
+  
+      event3_title: "Алишер Науаиның 585 жылдығы",
+      event3_desc: "Ауданымызда Науаиға арналған іс-шара өтті",
+  
+      event4_title: "Наурыз мерекесі",
+      event4_desc: "Ауданымызда Наурыз кеңінен аталып өтті",
+  
+      nav: "Навигация",
+      socials: "Әлеуметтік желілер",
+  
+      footer_desc: "Ресми портал",
+      copyright: "© 2026 Барлық құқықтар қорғалған",
+  
+      location: "📍 Юқори Чирчик ауданы",
+      map: "📍 Карта ашу",
+      phone: "📞 +998 99 615 04 35",
+      email: "✉ madaniyat54markazi@gmail.com"
+    }
+  };
 
 function setLang(lang) {
   localStorage.setItem("lang", lang);
