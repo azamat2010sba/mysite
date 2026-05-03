@@ -377,6 +377,15 @@ event4_desc: "Ауданда Наурыз кең көлемде атап өті�
   }
 };
 
+const lang = localStorage.getItem("lang") || "ru";
+
+card.innerHTML = `
+  <img src="${event.image}">
+  <h3>${event.title[lang]}</h3>
+  <p>${event.desc[lang]}</p>
+  <button>${translations[lang].more}</button>
+`;
+
 function setLang(lang) {
   localStorage.setItem("lang", lang);
   applyLang(lang);
