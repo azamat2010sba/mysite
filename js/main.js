@@ -378,6 +378,14 @@ const translations = {
       email: "✉ madaniyat54markazi@gmail.com"
     }
   };
+  card.innerHTML = `
+  <img src="${event.image}">
+  <h3>${t[`event${event.id}_title`]}</h3>
+  <p>${t[`event${event.id}_desc`]}</p>
+  <a href="event.html?id=${event.id}">
+    <button>Подробнее</button>
+  </a>
+`;
 
 function setLang(lang) {
   localStorage.setItem("lang", lang);
