@@ -317,6 +317,12 @@ const translations = {
   
       event4_title: "Navro‘z bayrami",
       event4_desc: "Tumanimizda Navro‘z keng nishonlandi",
+
+      contact_title: "Biz bilan bog‘lanish",
+placeholder_name: "Ism",
+placeholder_phone: "Telefon raqam",
+placeholder_msg: "Xabar",
+send_btn: "Yuborish",
   
       nav: "Navigatsiya",
       socials: "Ijtimoiy tarmoqlar",
@@ -365,6 +371,12 @@ const translations = {
   
       event4_title: "Наурыз мерекесі",
       event4_desc: "Ауданымызда Наурыз кеңінен аталып өтті",
+
+      contact_title: "Байланыс",
+placeholder_name: "Аты",
+placeholder_phone: "Телефон нөмірі",
+placeholder_msg: "Хабарлама",
+send_btn: "Жіберу",
   
       nav: "Навигация",
       socials: "Әлеуметтік желілер",
