@@ -302,6 +302,21 @@ const translations = {
     about_p2: "Markaz tadbirlar, to‘garaklar va ko‘rgazmalar orqali madaniy aloqalarni mustahkamlaydi.",
     about_p3: "Markazda 225 o‘rinli tomosha zali mavjud.",
     about_p4: "12 nafar xodim va 2 ta to‘garak faoliyat yuritadi.",
+    // 🔥 EVENTS
+events_page_title: "Tadbirlar",
+events_title: "📅 Tuman tadbirlari",
+
+event1_title: "14-yanvar Vatan himoyachilari kuni",
+event1_desc: "Yuqori Chirchiq tumanida Vatan himoyachilari kuni tantanali nishonlandi",
+
+event2_title: "Ma’naviyat karvoni",
+event2_desc: "Yuqori Chirchiq tumanida rivojlanish sari qadamlar",
+
+event3_title: "Alisher Navoiy tavalludining 585 yilligi",
+event3_desc: "Tumanimizda Navoiyga bag‘ishlangan tadbir o‘tkazildi",
+
+event4_title: "Navro‘z bayrami",
+event4_desc: "Tumanimizda Navro‘z keng nishonlandi",
     nav: "Navigatsiya",
     socials: "Ijtimoiy tarmoqlar",
   
@@ -334,6 +349,21 @@ const translations = {
     about_p2: "Орталық іс-шаралар мен үйірмелер арқылы мәдени байланысты нығайтады.",
     about_p3: "Орталықта 225 орындық зал бар.",
     about_p4: "12 қызметкер және 2 үйірме жұмыс істейді.",
+    // 🔥 EVENTS
+events_page_title: "Іс-шаралар",
+events_title: "📅 Аудан іс-шаралары",
+
+event1_title: "14 қаңтар Отан қорғаушылар күні",
+event1_desc: "Юқори Чирчик ауданында Отан қорғаушылар күні атап өтілді",
+
+event2_title: "Руханият керуені",
+event2_desc: "Ауданда даму жолындағы қадамдар",
+
+event3_title: "Әлішер Науаи 585 жылдығы",
+event3_desc: "Ауданда Науаиға арналған іс-шара өтті",
+
+event4_title: "Наурыз мерекесі",
+event4_desc: "Ауданда Наурыз кең көлемде атап өтілді",
     nav: "Навигация",
     socials: "Әлеуметтік желілер",
   
