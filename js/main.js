@@ -377,15 +377,30 @@ event4_desc: "Ауданда Наурыз кең көлемде атап өті�
   }
 };
 
-const lang = localStorage.getItem("lang") || "ru";
-
 card.innerHTML = `
   <img src="${event.image}">
   <h3>${event.title[lang]}</h3>
   <p>${event.desc[lang]}</p>
   <button>${translations[lang].more}</button>
 `;
+const container = document.getElementById("events-container");
+const lang = localStorage.getItem("lang") || "ru";
 
+data.forEach(event => {
+  const card = document.createElement("div");
+  card.classList.add("event-card");
+
+  card.innerHTML = `
+    <img src="${event.image}">
+    <h3>${event.title}</h3>
+    <p>${event.date}</p>
+    <a href="event.html?id=${event.id}">
+      <button>Подробнее</button>
+    </a>
+  `;
+
+  container.appendChild(card);
+});
 function setLang(lang) {
   localStorage.setItem("lang", lang);
   applyLang(lang);
