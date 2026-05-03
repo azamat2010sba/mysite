@@ -379,10 +379,10 @@ const translations = {
     }
   };
   card.innerHTML = `
-  <img src="${event.image}">
-  <h3>${t[`event${event.id}_title`]}</h3>
-  <p>${t[`event${event.id}_desc`]}</p>
-  <a href="event.html?id=${event.id}">
+  <img src="${events.image}">
+  <h3>${t[`event${events.id}_title`]}</h3>
+  <p>${t[`event${events.id}_desc`]}</p>
+  <a href="event.html?id=${events.id}">
     <button>Подробнее</button>
   </a>
 `;
